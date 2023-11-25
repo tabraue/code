@@ -31,7 +31,7 @@
 
 			$nombre = $_POST['usuario'];
 			$correo = $_POST['correo'];
-			$tipoResultado = $tipoUsuario($nombre, $correo);
+			$tipoResultado = tipoUsuario($nombre, $correo);
 
 			setcookie("data", $tipoResultado, time()+300);
 

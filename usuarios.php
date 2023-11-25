@@ -24,7 +24,7 @@
 
 		include "funciones.php";
 
-		if(!isset($_COOKIE['data']) or ($_COOKIE['data' !== "superadmin"])){
+		if(!isset($_COOKIE['data']) or ($_COOKIE['data'] !== "superadmin")){
 			echo "Hey! Lo siento, no tienes permisos para estar aquí.";
 		}else{
 			if(isset($_GET['cambiar'])){
@@ -34,10 +34,9 @@
 	?>
 
 	<div>
-		<h4>Los permisos son: <span><?php
-			echo getPermisos();	?></span></h4>
+		<h4>Los permisos son: <span><?php echo getPermisos();?></span></h4>
 			<form action="usuarios.php" method="get">
-				<label for="cambiar"><input type="submit" value="Cambiar permisos"></label>
+				<button type="submit" id="cambiar" name="cambiar">Cambiar permisos</button>
 			</form>
 	</div>
 

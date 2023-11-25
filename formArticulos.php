@@ -11,10 +11,8 @@
 
 	<?php
 	include "funciones.php";
-	?>
 
-	<?php
-	if (!isset($_COOKIE['data']) or ($_COOKIE['data' !== "autorizado"])) {
+	if (!isset($_COOKIE['data']) or ($_COOKIE['data'] !== "autorizado")) {
 		echo "Hey! Lo siento, no tienes permisos para estar aquí.";
 	} else {
 		if (isset($_GET['editar'])) {
@@ -35,16 +33,16 @@
 	?>
 
 
-	<form action="post" action="formArticulos.php">
+	<form method="post" action="formArticulos.php">
 		<label for="nombre">ID:
 			<input type="number" name="productid" id="productid" value="<?php echo $dataProducto["ProductID"]; ?>" disabled>
 			<input type="hidden" name="id" id="id" value="<?php echo $dataProducto["ProductID"]; ?>">
 		</label>
-		<label for="nombre">Nombre: <input type="text" name="nombre" id="nombre" value="<?php echo $dataProducto["Name"]; ?>"></label>
-		<label for="coste">Coste: <input type="number" name="coste" id="coste" value="<?php echo $dataProducto["Cost"]; ?>"></label>
-		<label for="precio">Precio: <input type="number" name="precio" id="precio" value="<?php echo $dataProducto["Price"]; ?>"></label>
+		<label for="nombre">Nombre: <input type="text" name="nombre" id="nombre" value="<?php echo $dataProducto["Name"]; ?>"  <?php echo isset($_GET['borrar']) ? 'disabled' : ''; ?> ></label>
+		<label for="coste">Coste: <input type="number" name="coste" id="coste" value="<?php echo $dataProducto["Cost"]; ?>"  <?php echo isset($_GET['borrar']) ? 'disabled' : ''; ?>></label>
+		<label for="precio">Precio: <input type="number" name="precio" id="precio" value="<?php echo $dataProducto["Price"]; ?>"  <?php echo isset($_GET['borrar']) ? 'disabled' : ''; ?>></label>
 		<label for="categoria">Categoría:
-			<select name="categoria" id="categoria">
+			<select name="categoria" id="categoria" <?php echo isset($_GET['borrar']) ? 'disabled' : ''; ?>>
 				<option value="">Categorías</option>
 				<?php pintaCategorias($dataProducto["CategoryID"]) ?>
 			</select>
@@ -52,25 +50,25 @@
 
 		<?php
 		if (isset($_GET['editar'])) {
-			echo '<button type="submit" name="accion" value="editar"></button>';
+			echo '<button type="submit" id="editar" name="accion" value="editar">Editar</button>';
 		} elseif (isset($_GET['borrar'])) {
-			echo '<button type="submit" name="accion" value="borrar"></button>';
+			echo '<button type="submit" id="borrar" name="accion" value="borrar">Borrar</button>';
 		} else {
-			echo '<button type="submit" name="accion" value="añadir"></button>';
+			echo '<button type="submit" id="añadir" name="accion" value="añadir">Añadir</button>';
 		}
 		?>
 
 		<?php
-		if (isset($_GET['accion'])) {
+		if (isset($_POST['accion'])) {
 
-			switch ($_GET['accion']) {
+			switch ($_POST['accion']) {
 				case 'editar':
 					if (editarProducto(
-						$_GET['id'],
-						$_GET['nombre'],
-						$_GET['coste'],
-						$_GET['precio'],
-						$_GET['categoria']
+						$_POST['id'],
+						$_POST['nombre'],
+						$_POST['coste'],
+						$_POST['precio'],
+						$_POST['categoria']
 					)) {
 						echo "Artículo editado!";
 					} else {
@@ -78,7 +76,7 @@
 					}
 					break;
 				case 'borrar':
-					if (borrarProducto($_GET['id'])) {
+					if (borrarProducto($_POST['id'])) {
 						echo 'Artículo borrado!';
 					} else {
 						echo 'Oops, el artículo no se ha borrado.';
@@ -86,10 +84,10 @@
 					break;
 				case 'añadir':
 					if (anadirProducto(
-						$_GET['nombre'],
-						$_GET['coste'],
-						$_GET['precio'],
-						$_GET['categoria']
+						$_POST['nombre'],
+						$_POST['coste'],
+						$_POST['precio'],
+						$_POST['categoria']
 					)) {
 						echo 'Artículo añadido!';
 					} else {
@@ -106,7 +104,8 @@
 
 	</form>
 
-	<a href="index.php">Atrás</a>
+	<a href="articulos.php">Atrás</a>
+
 
 </body>
 

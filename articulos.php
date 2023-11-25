@@ -25,16 +25,16 @@
 		<h1>Artículos</h1>
 	<?php 
 		if(getPermisos() == 1){
-			echo "<a href='formArticulos.php?anadir'>Añadir artículo</a>";
+			echo "<a href='formArticulos.php?añadir'>Añadir artículo</a>";
 		}
 	?>
 
 	<?php
-		if(!isset($_COOKIE['data']) or ($_COOKIE['data' !== "autorizado"])){
+		if(!isset($_COOKIE['data']) or ($_COOKIE['data'] !== "autorizado")){
 			echo "Hey! Lo siento, no tienes permisos para estar aquí.";
 		}else{
 			if(!isset($_GET['orden'])){
-				$orden = "ProductoID";
+				$orden = "ProductID";
 			}else{
 				$orden = $_GET['orden'];
 			}
