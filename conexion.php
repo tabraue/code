@@ -1,15 +1,10 @@
 <?php 
 	function crearConexion() {
-/* 		$host = "localhost";
+
+ 		$host = "localhost";
 		$user = "root";
-		$pass = "1210";
-		$baseDatos = "pac3_daw"; */
-
-		$host = "localhost";
-		$user = "system";
-		$pass = "1210";
+		$pass = "";
 		$baseDatos = "pac3_daw";
-
 
 		$conexion = mysqli_connect($host, $user, $pass, $baseDatos);
 
