@@ -20,15 +20,6 @@ function pintaCategorias($defecto)
 		$selected = ($row['CategoryID'] == $defecto) ? 'selected' : '';
 		echo "<option value='{$row['CategoryID']}' {$selected}>{$row['Name']}</option>";
 	}
-
-
-	/* 	while ($row = mysqli_fetch_assoc($categorias)) {
-			if ($row['CategoryID'] == $defecto) {
-				echo "<option value='{$row['CategoryID']}' selected>{$row['Name']}</option>";
-			} else {
-				echo "<option value='{$row['CategoryID']}'>{$row['Name']}</option>";
-			}
-		} */
 }
 
 /**
@@ -59,27 +50,6 @@ function pintaTablaUsuarios()
 	} else {
 		echo "No hay usuarios para mostrar.";
 	}
-
-
-	/* 	echo "
-			<table>
-				<tr>
-					<th>Nombre</th>
-					<th>Email</th>
-					<th>Autorizado</th>
-				</tr>
-			</table>";
-
-		while ($row = mysqli_fetch_assoc($userList)) {
-			echo "	
-				<tr>
-					<td>{$row['FullName']}</td>
-					<td>{$row['Email']}</td>
-				";
-
-			$rojo = ($row['Enabled'] == 1) ? 'rojo' : '';
-			echo "<td class='{$rojo}'>{$row['Enabled']}</td></tr>";
-		} */
 }
 
 /**
@@ -103,8 +73,6 @@ function pintaProductos($orden)
 			<th>Acciones</th>
 		</tr>
 		";
-	#
-
 
 	foreach ($productos as $row) {
 		echo "
@@ -127,29 +95,6 @@ function pintaProductos($orden)
 			echo "</tr>";
 		}
 	}
-
-	echo "</table>";
-
-	/* 	while($row = mysqli_fetch_assoc($productos)){
-		echo "
-			<tr>
-				<td>{$row['ProductID']}</td>
-				<td>{$row['Name']}</td>
-				<td>{$row['Cost']}</td>
-				<td>{$row['Price']}</td>
-				<td>{$row['Categoria']}</td>
-			";
-			#
-
-		if(getPermisos() == 1){
-			echo "
-					<td>
-						<a href='formArticulos.php?editar={$row['ProductID']}'>editar</a>
-						<a href='formArticulos.php?borrar={$row['ProductID']}'>borrar</a>
-					</td>
-				  </tr>";
-		}
-	} */
 
 	echo "</table>";
 }

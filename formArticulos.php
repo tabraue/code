@@ -94,7 +94,6 @@
 						echo 'Oops, el artículo no se ha añadido.';
 					}
 					break;
-					break;
 				default:
 					echo 'Vaya, parece que algo no está saliendo como esperábamos.';
 					break;

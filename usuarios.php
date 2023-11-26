@@ -10,42 +10,45 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="estilo.css">
 	<title>Usuarios</title>
 </head>
+
 <body>
 
 
 
-	<?php 
+	<?php
 
-		include "funciones.php";
+	include "funciones.php";
 
-		if(!isset($_COOKIE['data']) or ($_COOKIE['data'] !== "superadmin")){
-			echo "Hey! Lo siento, no tienes permisos para estar aquí.";
-		}else{
-			if(isset($_GET['cambiar'])){
-				cambiarPermisos();
-			}
+	if (!isset($_COOKIE['data']) or ($_COOKIE['data'] !== "superadmin")) {
+		echo "Hey! Lo siento, no tienes permisos para estar aquí.";
+	} else {
+		if (isset($_GET['cambiar'])) {
+			cambiarPermisos();
+		}
 
 	?>
 
-	<div>
-		<h4>Los permisos son: <span><?php echo getPermisos();?></span></h4>
+		<div>
+			<h4>Los permisos son: <span><?php echo getPermisos(); ?></span></h4>
 			<form action="usuarios.php" method="get">
 				<button type="submit" id="cambiar" name="cambiar">Cambiar permisos</button>
 			</form>
-	</div>
+		</div>
 
-	<?php 
-	pintaTablaUsuarios();
-		}
+	<?php
+		pintaTablaUsuarios();
+	}
 	?>
 
 	<a href="index.php">Atrás</a>
 
 </body>
+
 </html>

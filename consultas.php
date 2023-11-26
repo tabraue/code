@@ -94,7 +94,6 @@ function cambiarPermisos()
 
 	$conexion = crearConexion();
 
-
 	if ($permisos == 1) {
 		$query = "UPDATE setup SET Autenticación = 0";
 	} elseif ($permisos == 0){
@@ -104,7 +103,6 @@ function cambiarPermisos()
 	$resultado = mysqli_query($conexion, $query);
 
 	cerrarConexion($conexion);
-
 	// en ppio no es necesario devolver, solo UPDATE  ===>>  return $resultado["Autenticación"];
 }
 
@@ -232,7 +230,11 @@ function editarProducto($id, $nombre, $coste, $precio, $categoria)
 {
 	$conexion = crearConexion();
 
-	$query = "UPDATE product SET Name = '$nombre', Cost = $coste, Price = $precio, CategoryId = $categoria WHERE ProductID = $id";
+	$query = "UPDATE product SET Name = '$nombre', 
+								 Cost = $coste, 
+								 Price = $precio, 
+								 CategoryId = $categoria 
+							WHERE ProductID = $id";
 	$resultado = mysqli_query($conexion, $query);
 
 	cerrarConexion($conexion);
