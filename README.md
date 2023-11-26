@@ -2,7 +2,10 @@
 
 ## Descripción
 
-Este proyecto consiste en una aplicación web para gestionar el stock de productos en una tienda. Permite a los superadmins controlar permisos y a usuarios autorizados realizar operaciones en el inventario.
+## Descripción
+
+Este proyecto forma parte de la PAC de desarrollo, correspondiente a la Unidad Formativa 3, de la asignatura Desarrollo Web en Entorno Servidor. La aplicación web desarrollada tiene como objetivo gestionar el stock de productos en una tienda. Proporciona a los superadmins el control de permisos, permitiendo a los usuarios autorizados realizar diversas operaciones en el inventario.
+
 
 ## Tecnologías Utilizadas
 
@@ -15,7 +18,7 @@ Este proyecto consiste en una aplicación web para gestionar el stock de product
 - **Objetivo Principal**: Desarrollar un sistema para la gestión eficiente de productos y permisos de usuarios.
 
 - **Objetivos Específicos**:
-  1. Implementar autenticación y autorización para distintos usuarios.
+  1. Implementar autorización para distintos usuarios.
   2. Permitir a superadmins modificar permisos de usuarios.
   3. Crear funciones para añadir, editar, borrar y consultar productos.
 
